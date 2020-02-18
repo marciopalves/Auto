@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2016/05/23 22:04:15.000.188,=C:\Users\jorge\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2016/05/26 20:34:58.000.767,=C:\Users\jorge\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2016/05/26 20:47:17.000.134,=C:\Users\jorge\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2016/05/26 20:52:30.000.616,=C:\Users\jorge\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2016/06/12 21:24:16.000.127,=C:\Users\jorge\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2016/06/12 21:58:50.000.719,=C:\Users\jorge\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2016/10/28 23:36:10.000.502,=C:\Users\jorge\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2016/10/28 23:36:30.000.427,E:\MVC\View\FPrincipal.dfm=C:\Users\jorge\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2016/10/28 23:36:30.000.427,E:\MVC\View\FPrincipal.pas=C:\Users\jorge\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2016/10/28 23:36:35.000.196,E:\MVC\Project1.dproj=C:\Users\jorge\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2016/10/28 23:36:50.000.188,E:\MVC\PrjMVC.dproj=E:\MVC\Project1.dproj</Transaction>
+    <Transaction>2016/10/28 23:37:40.000.833,E:\MVC\View\FPrincipalView.pas=E:\MVC\View\FPrincipal.pas</Transaction>
+    <Transaction>2016/10/28 23:37:40.000.833,E:\MVC\View\FPrincipalView.dfm=E:\MVC\View\FPrincipal.dfm</Transaction>
+    <Transaction>2016/10/28 23:55:58.000.296,=E:\MVC\Unit1.pas</Transaction>
+    <Transaction>2016/10/28 23:56:10.000.778,E:\MVC\Dao\uConexao.pas=E:\MVC\Unit1.pas</Transaction>
+    <Transaction>2016/10/29 01:30:40.000.205,=E:\MVC_Delphi\MVC_Delphi\Unit1.pas</Transaction>
+    <Transaction>2016/10/29 01:31:02.000.475,E:\MVC_Delphi\MVC_Delphi\Controlle\uSistemaControl.pas=E:\MVC_Delphi\MVC_Delphi\Unit1.pas</Transaction>
+    <Transaction>2016/10/29 01:37:24.000.135,=E:\MVC_Delphi\MVC_Delphi\Unit1.pas</Transaction>
+    <Transaction>2016/10/29 01:37:38.000.600,E:\MVC_Delphi\MVC_Delphi\Model\uEmpresaModel.pas=E:\MVC_Delphi\MVC_Delphi\Unit1.pas</Transaction>
+    <Transaction>2016/10/29 02:10:51.000.048,=E:\MVC_Delphi\MVC_Delphi\Unit1.pas</Transaction>
+    <Transaction>2016/10/29 02:11:03.000.867,E:\MVC_Delphi\MVC_Delphi\Dao\uEmpresaDao.pas=E:\MVC_Delphi\MVC_Delphi\Unit1.pas</Transaction>
+    <Transaction>2017/05/29 13:34:35.000.439,=D:\projetos\projetos_Delphi\MVC_TESTE\View\uFrmClienteView.pas</Transaction>
+    <Transaction>2020/02/18 07:12:23.000.042,C:\marcio\teste\Auto\Delphi-Crud-mvc\PrjAuto.dproj=C:\marcio\teste\Auto\Delphi-Crud-mvc\PrjMVC.dproj</Transaction>
+    <Transaction>2020/02/18 07:13:05.000.166,=C:\marcio\teste\Auto\Delphi-Crud-mvc\Unit1.pas</Transaction>
+    <Transaction>2020/02/18 07:14:05.000.022,C:\marcio\teste\Auto\Delphi-Crud-mvc\Controlle\uRecursos.pas=C:\marcio\teste\Auto\Delphi-Crud-mvc\Unit1.pas</Transaction>
+    <Transaction>2020/02/18 07:16:56.000.266,=C:\marcio\teste\Auto\Delphi-Crud-mvc\Unit1.pas</Transaction>
+    <Transaction>2020/02/18 07:21:22.000.741,C:\marcio\teste\Auto\Delphi-Crud-mvc\Controlle\uManipuladorArquivos.pas=C:\marcio\teste\Auto\Delphi-Crud-mvc\Unit1.pas</Transaction>
+    <Transaction>2020/02/18 07:55:43.000.969,C:\marcio\teste\Auto\Delphi-Crud-mvc\Controlle\uFuncoesArquivos.pas=C:\marcio\teste\Auto\Delphi-Crud-mvc\Controlle\uManipuladorArquivos.pas</Transaction>
+    <Transaction>2020/02/18 09:48:24.000.819,C:\marcio\teste\Auto\Dao\uClienteDao.pas=C:\marcio\teste\Auto\Dao\uParceiroDao.pas</Transaction>
+    <Transaction>2020/02/18 10:21:55.000.754,=C:\marcio\teste\Auto\Unit1.pas</Transaction>
+    <Transaction>2020/02/18 10:22:37.000.278,C:\marcio\teste\Auto\Unit1.pas=C:\marcio\teste\Auto\Controlle\uAtualizaBanco.pas</Transaction>
+    <Transaction>2020/02/18 13:34:51.422,C:\marcio\teste\Auto\Controlle\uParceiroControl.pas=C:\marcio\teste\Auto\Controlle\uClienteControl.pas</Transaction>
+    <Transaction>2020/02/18 13:35:49.641,C:\marcio\teste\Auto\Model\uParceiroModel.pas=C:\marcio\teste\Auto\Model\uClienteModel.pas</Transaction>
+    <Transaction>2020/02/18 13:37:43.284,C:\marcio\teste\Auto\View\uFrmParceiroView.dfm=C:\marcio\teste\Auto\View\uFrmClienteView.dfm</Transaction>
+    <Transaction>2020/02/18 13:37:43.284,C:\marcio\teste\Auto\View\uFrmParceiroView.pas=C:\marcio\teste\Auto\View\uFrmClienteView.pas</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="Controlle"/>
+    <File Path="Controlle\uAtualizaBanco.pas"/>
+    <File Path="Controlle\uFuncoesArquivos.pas"/>
+    <File Path="Controlle\uParceiroControl.pas"/>
+    <File Path="Controlle\uRecursos.pas"/>
+    <File Path="Controlle\uSistemaControl.pas"/>
+    <File Path="Dao"/>
+    <File Path="Dao\uConexao.pas"/>
+    <File Path="Dao\uEmpresaDao.pas"/>
+    <File Path="Dao\uParceiroDao.pas"/>
+    <File Path="Model"/>
+    <File Path="Model\uEmpresaModel.pas"/>
+    <File Path="Model\uEnumerado.pas"/>
+    <File Path="Model\uParceiroModel.pas"/>
+    <File Path="View"/>
+    <File Path="View\uFrmParceiroView.pas"/>
+    <File Path="View\uFrmParceiroView.dfm"/>
+    <File Path="View\uFrmPrincipalView.pas"/>
+    <File Path="View\uFrmPrincipalView.dfm"/>
+  </ProjectSortOrder>
+</BorlandProject>

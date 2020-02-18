@@ -1,2 +1,2 @@
 # Auto
-Sistema garagen
+Sistema para garagens
