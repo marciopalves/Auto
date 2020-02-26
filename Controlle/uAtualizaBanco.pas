@@ -41,7 +41,7 @@ var
   FConexao: TConexao;
 begin
   FConexao := TSistemaControl.GetInstanceConexao().Conexao;
-  vScript := FConexao.CriarScript;
+  vScript  := FConexao.CriarScript;
   try
     vsMensagem := StringReplace(' Atualizar Recurso  %s Inicio', '%s', pNome, []);
     pMensagem.Add(vsMensagem);
@@ -50,8 +50,11 @@ begin
       ExtrairRecursoSQL(vCaminhoArquivo);
 
       vScript.SQLScripts.Clear;
-      vScript.SQLScripts.Items[0].SQL.LoadFromFile(vCaminhoArquivo);
+      vScript.SQLScriptFileName := vCaminhoArquivo;
+
+      vScript.ValidateAll;
       vScript.ExecuteAll;
+
       Result := True;
     except
       on e:Exception do

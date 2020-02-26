@@ -15,7 +15,6 @@ type
 
     procedure ConfigurarConexao;
   public
-
     destructor Destroy; override;
     constructor Create;
 
@@ -36,12 +35,16 @@ uses
 
 procedure TConexao.ConfigurarConexao;
 begin
-  FConn.Params.DriverID := 'FB';
-  FConn.Params.Database := PATH_BANCO;
-  FConn.Params.UserName := 'SYSDBA';
-  FConn.Params.Password := 'masterkey';
-  FConn.LoginPrompt     := False;
-  FConn.Open();
+  try
+    FConn.Params.DriverID := 'FB';
+    FConn.Params.Database := PATH_BANCO;
+    FConn.Params.UserName := 'SYSDBA';
+    FConn.Params.Password := 'masterkey';
+    FConn.LoginPrompt     := False;
+    FConn.Open();
+  except
+    raise Exception.Create('Erro ao conectar no banco de dados!');
+  end;
 end;
 
 constructor TConexao.Create;
@@ -66,6 +69,7 @@ var
 begin
   vScript := TFDScript.Create(nil);
   vScript.Connection := FConn;
+  vScript.Connection.DriverName := 'FB';
 
   Result := vScript;
 end;
