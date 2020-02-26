@@ -11,7 +11,6 @@ uses
   uEmpresaDao in 'Dao\uEmpresaDao.pas',
   uEnumerado in 'Model\uEnumerado.pas',
   uParceiroModel in 'Model\uParceiroModel.pas',
-  uParceiroDao in 'Dao\uParceiroDao.pas',
   uParceiroControl in 'Controlle\uParceiroControl.pas',
   uFrmParceiroView in 'View\uFrmParceiroView.pas' {frmCadastroParceiro},
   uRecursos in 'Controlle\uRecursos.pas',

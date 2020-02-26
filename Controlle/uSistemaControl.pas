@@ -3,7 +3,7 @@ unit uSistemaControl;
 interface
 
 uses
-  uConexao, System.SysUtils, uEmpresaModel;
+  System.SysUtils, uConexao, uEmpresaModel;
 
 type
   TSistemaControl = class
@@ -12,10 +12,12 @@ type
     FEmpresaModel: TEmpresaModel;
 
     class var FInstance: TSistemaControl;
-
-  public
     constructor Create();
+  public
+
     destructor Destroy; override;
+
+    procedure AtualizaBancoDados;
 
     procedure CarregarEmpresa(ACodigoEmpresa: Integer);
 
@@ -28,6 +30,8 @@ type
 implementation
 
 { TSistemaControl }
+
+Uses System.Classes, uAtualizaBanco;
 
 procedure TSistemaControl.CarregarEmpresa(ACodigoEmpresa: Integer);
 begin
@@ -56,6 +60,20 @@ begin
   end;
 
   Result := Self.FInstance;
+end;
+
+procedure TSistemaControl.AtualizaBancoDados;
+var
+  vMsg: TStringList;
+begin
+  vMsg := TStringList.Create();
+  try
+    uAtualizaBanco.TBanco.AtualizarRecurso('Domain', vMsg);
+    uAtualizaBanco.TBanco.AtualizarRecurso('Sequence', vMsg);
+    uAtualizaBanco.TBanco.AtualizarRecurso('Parceiro', vMsg);
+  finally
+    FreeAndNil(vMsg);
+  end;
 end;
 
 end.

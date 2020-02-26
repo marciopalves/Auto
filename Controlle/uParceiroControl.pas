@@ -3,7 +3,7 @@ unit uParceiroControl;
 interface
 
 uses
-  System.SysUtils, FireDAC.Comp.Client, uParceiroModel, uParceiroDao, uEnumerado;
+  System.SysUtils, FireDAC.Comp.Client, uParceiroModel, uEnumerado;
 
 type
   TParceiroControl = class
@@ -23,7 +23,7 @@ type
 
 implementation
 
-{ TClienteControl }
+{ TParceiroControl }
 
 constructor TParceiroControl.Create;
 begin
@@ -39,44 +39,44 @@ end;
 
 function TParceiroControl.GetId(AAutoIncrementar: Integer): Integer;
 var
-  vParceiroDao: TParceiroDao;
+  vParceiroRepository: TParceiroRepository;
 begin
-  vParceiroDao := TParceiroDao.Create;
+  vParceiroRepository := TParceiroRepository.Create;
   try
-    Result := vParceiroDao.GetId(AAutoIncrementar);
+    Result := vParceiroRepository.GetId(AAutoIncrementar);
   finally
-    vParceiroDao.Free;
+    vParceiroRepository.Free;
   end;
 end;
 
 
 function TParceiroControl.Obter: TFDQuery;
 var
-  vParceiroDao: TParceiroDao;
+  vParceiroRepository: TParceiroRepository;
 begin
-  vParceiroDao := TParceiroDao.Create;
+  vParceiroRepository := TParceiroRepository.Create;
   try
-    Result := vParceiroDao.Obter;
+    Result := vParceiroRepository.Obter;
   finally
-    vParceiroDao.Free;
+    vParceiroRepository.Free;
   end;
 end;
 
 function TParceiroControl.Salvar: Boolean;
 var
-  vParceiroDao: TParceiroDao;
+  vParceiroReposiyoty: TParceiroRepository;
 begin
   Result := False;
-  vParceiroDao := TParceiroDao.Create;
+  vParceiroReposiyoty := TParceiroRepository.Create;
   try
     case ParceiroModel.Acao of
-      uEnumerado.tacIncluir: Result := vParceiroDao.Incluir(ParceiroModel);
-      uEnumerado.tacAlterar: Result := vParceiroDao.Alterar(ParceiroModel);
-      uEnumerado.tacExcluir: Result := vParceiroDao.Excluir(ParceiroModel);
+      uEnumerado.tacIncluir: Result := vParceiroReposiyoty.Incluir(ParceiroModel);
+      uEnumerado.tacAlterar: Result := vParceiroReposiyoty.Alterar(ParceiroModel);
+      uEnumerado.tacExcluir: Result := vParceiroReposiyoty.Excluir(ParceiroModel);
     end;
     Result := True;
   finally
-    vParceiroDao.Free;
+    vParceiroReposiyoty.Free;
   end;
 
 end;

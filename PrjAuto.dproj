@@ -98,7 +98,6 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <RcCompile Include="ArqRecursos\Recursos.rc">
-            <ModuleName>Recursos.rc</ModuleName>
             <Form>Recursos.res</Form>
         </RcCompile>
         <DCCReference Include="View\uFrmPrincipalView.pas">
@@ -106,12 +105,10 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Dao\uConexao.pas"/>
-        <DCCReference Include="Controlle\uSistemaControl.pas"/>
         <DCCReference Include="Model\uEmpresaModel.pas"/>
         <DCCReference Include="Dao\uEmpresaDao.pas"/>
         <DCCReference Include="Model\uEnumerado.pas"/>
         <DCCReference Include="Model\uParceiroModel.pas"/>
-        <DCCReference Include="Dao\uParceiroDao.pas"/>
         <DCCReference Include="Controlle\uParceiroControl.pas"/>
         <DCCReference Include="View\uFrmParceiroView.pas">
             <Form>frmCadastroParceiro</Form>
@@ -120,6 +117,7 @@
         <DCCReference Include="Controlle\uRecursos.pas"/>
         <DCCReference Include="Controlle\uFuncoesArquivos.pas"/>
         <DCCReference Include="Controlle\uAtualizaBanco.pas"/>
+        <DCCReference Include="Controlle\uSistemaControl.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -141,8 +139,13 @@
                     <Source Name="MainSource">PrjAuto.dpr</Source>
                 </Source>
                 <Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k220.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp220.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\17.0\Bpl\RtmRxCtl230.bpl">RX Library Component and Tools Package</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\17.0\Bpl\RtmRxDB230.bpl">RX Library Component and Tools Package</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\17.0\Bpl\LockBox230.bpl">TurboPower LockBox 2.08 Run-time package - RTL210</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\17.0\Bpl\RtmRxBde230.bpl">RX Library BDE DB Component Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp230.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\17.0\Bpl\AbbreviaVCLD230.bpl">TurboPack Abbrevia Runtime Delphi package VCL</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\17.0\Bpl\TemplateEngine230.bpl">PC TemplateEngine</Excluded_Packages>
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="2">
@@ -152,12 +155,27 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployClass Name="ProjectiOSDeviceResourceRules">
+                <DeployClass Name="DependencyModule">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.dll;.bpl</Extensions>
+                    </Platform>
                     <Platform Name="iOSDevice64">
                         <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
                     </Platform>
                     <Platform Name="iOSDevice32">
                         <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
                     </Platform>
                 </DeployClass>
                 <DeployClass Name="ProjectOSXResource">
@@ -511,27 +529,12 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <DeployClass Name="DependencyModule">
-                    <Platform Name="Win32">
-                        <Operation>0</Operation>
-                        <Extensions>.dll;.bpl</Extensions>
-                    </Platform>
+                <DeployClass Name="ProjectiOSDeviceResourceRules">
                     <Platform Name="iOSDevice64">
                         <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
-                    </Platform>
-                    <Platform Name="OSX32">
-                        <RemoteDir>Contents\MacOS</RemoteDir>
-                        <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
                     </Platform>
                     <Platform Name="iOSDevice32">
                         <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
-                    </Platform>
-                    <Platform Name="iOSSimulator">
-                        <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
                     </Platform>
                 </DeployClass>
                 <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>

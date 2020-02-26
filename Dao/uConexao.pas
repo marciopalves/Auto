@@ -3,9 +3,10 @@ unit uConexao;
 interface
 
 uses
-  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
-  FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, Data.DB, FireDAC.Comp.Client, FireDAC.Phys.MySQLDef,
-  FireDAC.Phys.FB, System.SysUtils, FireDAC.DApt, FireDAC.VCLUI.Wait, System.Classes;
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
+  FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
+  FireDAC.Phys, Data.DB, FireDAC.Comp.Client, FireDAC.Phys.MySQLDef, FireDAC.Phys.FB,
+  System.SysUtils, FireDAC.DApt, FireDAC.VCLUI.Wait, FireDAC.Comp.Script;
 
 type
   TConexao = class
@@ -20,11 +21,11 @@ type
 
     function GetConn: TFDConnection;
     function CriarQuery: TFDQuery;
-    Procedure AtualizaBancoDados;
+    function CriarScript: TFDScript;
   end;
 
   const
-    PATH_BANCO: String = 'C:\marcio\teste\Auto\BD\AUTO.FDB';//'E:\MVC_DELPHI\MVC_DELPHI\DB_MVC.FDB';
+    PATH_BANCO: String = 'C:\marcio\teste\Auto\BD\AUTO.FDB';
 
 implementation
 
@@ -41,9 +42,6 @@ begin
   FConn.Params.Password := 'masterkey';
   FConn.LoginPrompt     := False;
   FConn.Open();
-
-  //Atualizar Banco de Dados
-  AtualizaBancoDados;
 end;
 
 constructor TConexao.Create;
@@ -62,6 +60,16 @@ begin
   Result := vQry;
 end;
 
+function TConexao.CriarScript: TFDScript;
+var
+  vScript : TFDScript;
+begin
+  vScript := TFDScript.Create(nil);
+  vScript.Connection := FConn;
+
+  Result := vScript;
+end;
+
 destructor TConexao.Destroy;
 begin
   FConn.Free;
@@ -72,20 +80,6 @@ end;
 function TConexao.GetConn: TFDConnection;
 begin
   Result := FConn;
-end;
-
-procedure TConexao.AtualizaBancoDados;
-var
-  vMsg: TStringList;
-begin
-  vMsg := TStringList.Create();
-  try
-    uAtualizaBanco.TBanco.AtualizarRecurso('Domain', vMsg);
-    uAtualizaBanco.TBanco.AtualizarRecurso('Sequence', vMsg);
-    uAtualizaBanco.TBanco.AtualizarRecurso('Parceiro', vMsg);
-  finally
-    FreeAndNil(vMsg);
-  end;
 end;
 
 end.

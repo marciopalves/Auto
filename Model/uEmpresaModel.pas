@@ -9,15 +9,15 @@ type
   TEmpresaModel = class
   private
     FCodigo: Integer;
-    FRSocial: string;
+    FRazaoSocial: string;
 
     procedure SetCodigo(const Value: Integer);
-    procedure SetRSocial(const Value: string);
+    procedure SetRazaoSocial(const Value: string);
   public
     procedure Carregar(ACodigo: Integer);
 
     property Codigo: Integer read FCodigo write SetCodigo;
-    property RSocial: string read FRSocial write SetRSocial;
+    property RSocial: string read FRazaoSocial write SetRazaoSocial;
   end;
 
 implementation
@@ -43,9 +43,9 @@ begin
   FCodigo := Value;
 end;
 
-procedure TEmpresaModel.SetRSocial(const Value: string);
+procedure TEmpresaModel.SetRazaoSocial(const Value: string);
 begin
-  FRSocial := Value;
+  FRazaoSocial := Value;
 end;
 
 end.

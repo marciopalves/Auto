@@ -2,15 +2,24 @@ unit uAtualizaBanco;
 
 interface
 
-uses System.SysUtils, System.Classes, FireDAC.Comp.Client, Vcl.Forms;
+uses System.SysUtils, System.Classes, FireDAC.Comp.Client, FireDAC.Comp.Script,
+     Vcl.Forms;
 
 type
 
   TBanco = Class
 
   public
+    ///  <summary>Método que atualiza objetos do Banco de dados </summary>
+    ///  <param name="pNome">Nome do recurso que vai atualizar</param>
+    ///  <param name="pMensagem">Mensagens referente ao processo/etapas </param>
+    ///  <returns>True se o processamento foi ok e False para possíveis exceções</returns>
     class function AtualizarRecurso(const pNome:String; out pMensagem: TStringList): Boolean;
   private
+    ///  <summary>Método Verifica a existencia do objeto no banco de dados </summary>
+    ///  <param name="pNome">Nome do recurso que vai atualizar</param>
+    ///  <param name="pMensagem">Mensagens se encontrou o objeto ou não </param>
+    ///  <returns>True se encontrou o objeot no banco de dados e False caso não encontre</returns>
     class function VerificaObjetoBancoDados(const pNome:string; out pMensagem: TStringList): Boolean;
 
   end;
@@ -27,12 +36,12 @@ class function TBanco.AtualizarRecurso(const pNome:String;
 out pMensagem: TStringList): Boolean;
 var
   vsMensagem : String;
-  vQry : TFDQuery;
+  vScript : TFDScript;
   vCaminhoArquivo: String;
   FConexao: TConexao;
 begin
   FConexao := TSistemaControl.GetInstanceConexao().Conexao;
-  vQry := FConexao.CriarQuery;
+  vScript := FConexao.CriarScript;
   try
     vsMensagem := StringReplace(' Atualizar Recurso  %s Inicio', '%s', pNome, []);
     pMensagem.Add(vsMensagem);
@@ -40,9 +49,9 @@ begin
       vCaminhoArquivo := ExtractFilePath(Application.ExeName) + 'ArqRecursos\' + pNome + '.SQL';
       ExtrairRecursoSQL(vCaminhoArquivo);
 
-      vQry.SQL.Clear;
-      vQry.SQL.LoadFromFile(vCaminhoArquivo);
-      vQry.Execute;
+      vScript.SQLScripts.Clear;
+      vScript.SQLScripts.Items[0].SQL.LoadFromFile(vCaminhoArquivo);
+      vScript.ExecuteAll;
       Result := True;
     except
       on e:Exception do
@@ -57,8 +66,7 @@ begin
     VerificaObjetoBancoDados(pNome, pMensagem);
     vsMensagem := StringReplace(' Atualizar Recurso  %s Fim', '%s', pNome, []);
     pMensagem.Add(vsMensagem);
-    vQry.Close;
-    FreeAndNil(vQry);
+    FreeAndNil(vScript);
   end;
 end;
 

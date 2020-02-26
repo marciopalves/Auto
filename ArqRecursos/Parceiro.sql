@@ -14,3 +14,5 @@ complemento dvarchar20,
 bairro dvarchar20,
 cidade dvarchar50,
 uf dvarchar2 );
+
+Commit work;
