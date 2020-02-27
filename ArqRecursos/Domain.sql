@@ -9,5 +9,6 @@ create domain dVarchar100 as varchar(100);
 create domain dCodigo as integer;
 create domain dData as Date default current_date;
 create domain dDataHora as timestamp default current_timestamp;
+create domain dEmpresa as char(1) default '0' check (value in ('0', '1', '2'));
 
 Commit work;

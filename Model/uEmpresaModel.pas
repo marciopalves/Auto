@@ -3,7 +3,7 @@ unit uEmpresaModel;
 interface
 
 uses
-  System.SysUtils;
+  System.SysUtils, FireDAC.Comp.Client;
 
 type
   TEmpresaModel = class
@@ -11,41 +11,55 @@ type
     FCodigo: Integer;
     FRazaoSocial: string;
 
-    procedure SetCodigo(const Value: Integer);
-    procedure SetRazaoSocial(const Value: string);
   public
     procedure Carregar(ACodigo: Integer);
 
-    property Codigo: Integer read FCodigo write SetCodigo;
-    property RSocial: string read FRazaoSocial write SetRazaoSocial;
+    property Codigo: Integer read FCodigo write FCodigo;
+    property RSocial: string read FRazaoSocial write FRazaoSocial;
+  end;
+
+  type
+  TEmpresaRepository = class
+  public
+    procedure carregar(AEmpresaModel: TEmpresaModel; ACodigo: Integer);
   end;
 
 implementation
 
 { TEmpresa }
 
-uses uEmpresaDao;
+uses uSistemaControl;
 
 procedure TEmpresaModel.Carregar;
 var
-  vEmpresaDao: TEmpresaDao;
+  vEmpresaRepository: TEmpresaRepository;
 begin
-  vEmpresaDao := TEmpresaDao.Create;
+  vEmpresaRepository := TEmpresaRepository.Create;
   try
-    vEmpresaDao.carregar(Self, ACodigo);
+    vEmpresaRepository.carregar(Self, ACodigo);
   finally
-    vEmpresaDao.Free;
+    vEmpresaRepository.Free;
   end;
 end;
 
-procedure TEmpresaModel.SetCodigo(const Value: Integer);
-begin
-  FCodigo := Value;
-end;
+{ TEmpresaRepository }
 
-procedure TEmpresaModel.SetRazaoSocial(const Value: string);
+procedure TEmpresaRepository.carregar(AEmpresaModel: TEmpresaModel; ACodigo: Integer);
+var
+  vQuery: TFDQuery;
 begin
-  FRazaoSocial := Value;
+  vQuery := TSistemaControl.GetInstanceConexao().Conexao.CriarQuery;
+  try
+    vQuery.Open('select id_Empresa, rsocial from empresa where codigo = :codigo ', [ACodigo]);
+    try
+      AEmpresaModel.Codigo  := vQuery.Fields[0].AsInteger;
+      AEmpresaModel.RSocial := vQuery.Fields[1].AsString;
+    finally
+      vQuery.Close;
+    end;
+  finally
+    vQuery.Free;
+  end;
 end;
 
 end.

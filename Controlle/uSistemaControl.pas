@@ -70,8 +70,10 @@ begin
   try
     uAtualizaBanco.TBanco.AtualizarRecurso('Domain', vMsg);
     uAtualizaBanco.TBanco.AtualizarRecurso('Sequence', vMsg);
+    uAtualizaBanco.TBanco.AtualizarRecurso('Empresa', vMsg);
     uAtualizaBanco.TBanco.AtualizarRecurso('Parceiro', vMsg);
   finally
+    //ForceDirectories(ExtractFilePath(Application.ExeName) + 'Log\AtualizarRecurso');
     FreeAndNil(vMsg);
   end;
 end;

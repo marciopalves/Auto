@@ -83,22 +83,25 @@ var
   vQry : TFDQuery;
   vsMensagem:string;
 begin
-  vQry := TSistemaControl.GetInstanceConexao().Conexao.CriarQuery;
-  try
-    vQry.SQL.Clear;
-    vQry.SQL.Add(SQL_VALIDAR);
-    vQry.ParamByName('Objeto').AsString := pNome;
-    vQry.Open;
-    Result := not vQry.IsEmpty;
-  finally
-    if Result then
-      vsMensagem := StringReplace(' Objeto %s criado com sucesso! ', '%s', pNome, [])
-    else vsMensagem := StringReplace(' Objeto %s não criado! ', '%s', pNome, []);
+  if pNome <> 'Domain' then
+  begin
+    vQry := TSistemaControl.GetInstanceConexao().Conexao.CriarQuery;
+    try
+      vQry.SQL.Clear;
+      vQry.SQL.Add(SQL_VALIDAR);
+      vQry.ParamByName('Objeto').AsString := pNome;
+      vQry.Open;
+      Result := not vQry.IsEmpty;
+    finally
+      if Result then
+        vsMensagem := StringReplace(' Objeto %s criado com sucesso! ', '%s', pNome, [])
+      else vsMensagem := StringReplace(' Objeto %s não criado! ', '%s', pNome, []);
 
-    pMensagem.Add(vsMensagem);
+      pMensagem.Add(vsMensagem);
 
-    vQry.Close;
-    FreeAndNil(vQry);
+      vQry.Close;
+      FreeAndNil(vQry);
+    end;
   end;
 end;
 

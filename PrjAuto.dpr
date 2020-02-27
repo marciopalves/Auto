@@ -8,7 +8,6 @@ uses
   uConexao in 'Dao\uConexao.pas',
   uSistemaControl in 'Controlle\uSistemaControl.pas',
   uEmpresaModel in 'Model\uEmpresaModel.pas',
-  uEmpresaDao in 'Dao\uEmpresaDao.pas',
   uEnumerado in 'Model\uEnumerado.pas',
   uParceiroModel in 'Model\uParceiroModel.pas',
   uParceiroControl in 'Controlle\uParceiroControl.pas',

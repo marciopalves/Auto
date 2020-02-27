@@ -6,7 +6,9 @@ uses
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
   FireDAC.Phys, Data.DB, FireDAC.Comp.Client, FireDAC.Phys.MySQLDef, FireDAC.Phys.FB,
-  System.SysUtils, FireDAC.DApt, FireDAC.VCLUI.Wait, FireDAC.Comp.Script;
+  System.SysUtils, FireDAC.DApt, FireDAC.VCLUI.Wait, FireDAC.Comp.Script,
+  FireDAC.Comp.ScriptCommands, FireDAC.Stan.Util, FireDAC.Phys.FBDef,
+  FireDAC.Phys.IBBase, FireDAC.Comp.UI;
 
 type
   TConexao = class
@@ -69,8 +71,7 @@ var
 begin
   vScript := TFDScript.Create(nil);
   vScript.Connection := FConn;
-  vScript.Connection.DriverName := 'FB';
-
+  vScript.Connection.DriverName := FConn.Params.DriverID;
   Result := vScript;
 end;
 
