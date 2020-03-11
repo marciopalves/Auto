@@ -13,6 +13,7 @@ cidade dvarchar50,
 complemento dvarchar50,
 bairro dvarchar20,
 uf dvarchar2,
+cep dvarchar20,
 Ativo dsimnao,
 TipoEmpresa dEmpresa);
 

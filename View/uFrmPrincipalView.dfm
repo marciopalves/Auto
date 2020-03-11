@@ -56,7 +56,7 @@ object frmPrincipal: TfrmPrincipal
           item
             Items = <
               item
-                Action = Action1
+                Action = actParceiro
               end>
             Caption = '&Cadastros'
           end>
@@ -65,10 +65,43 @@ object frmPrincipal: TfrmPrincipal
     Left = 96
     Top = 72
     StyleName = 'Platform Default'
-    object Action1: TAction
+    object actParceiro: TAction
       Category = '&Cadastros'
       Caption = '&Parceiro'
-      OnExecute = Action1Execute
+      OnExecute = actParceiroExecute
     end
+    object actEmpresa: TAction
+      Category = '&Cadastros'
+      Caption = '&Empresa'
+      OnExecute = actEmpresaExecute
+    end
+  end
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'DriverID=FB'
+      'User_Name=sysdba'
+      'Password=masterkey')
+    Left = 512
+    Top = 96
+  end
+  object FDScript1: TFDScript
+    SQLScriptFileName = 'C:\marcio\teste\Auto\ArqRecursos\Domain.sql'
+    SQLScripts = <
+      item
+      end>
+    Connection = FDConnection1
+    Params = <>
+    Macros = <>
+    Left = 512
+    Top = 152
+  end
+  object FDGUIxWaitCursor1: TFDGUIxWaitCursor
+    Provider = 'Forms'
+    Left = 568
+    Top = 288
+  end
+  object FDPhysFBDriverLink1: TFDPhysFBDriverLink
+    Left = 496
+    Top = 232
   end
 end

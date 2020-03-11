@@ -19,7 +19,7 @@ type
 
     procedure AtualizaBancoDados;
 
-    procedure CarregarEmpresa(ACodigoEmpresa: Integer);
+    procedure CarregarEmpresa(pCodigoEmpresa: Integer);
 
     class function GetInstanceConexao: TSistemaControl;
 
@@ -33,9 +33,9 @@ implementation
 
 Uses System.Classes, uAtualizaBanco;
 
-procedure TSistemaControl.CarregarEmpresa(ACodigoEmpresa: Integer);
+procedure TSistemaControl.CarregarEmpresa(pCodigoEmpresa: Integer);
 begin
-  EmpresaModel.Carregar(ACodigoEmpresa);
+  EmpresaModel.Carregar(pCodigoEmpresa);
 end;
 
 constructor TSistemaControl.Create();

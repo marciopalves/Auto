@@ -14,7 +14,8 @@ uses
   uFrmParceiroView in 'View\uFrmParceiroView.pas' {frmCadastroParceiro},
   uRecursos in 'Controlle\uRecursos.pas',
   uFuncoesArquivos in 'Controlle\uFuncoesArquivos.pas',
-  uAtualizaBanco in 'Controlle\uAtualizaBanco.pas';
+  uAtualizaBanco in 'Controlle\uAtualizaBanco.pas',
+  uAutoMovel in 'Model\uAutoMovel.pas';
 
 {$R *.res}
 

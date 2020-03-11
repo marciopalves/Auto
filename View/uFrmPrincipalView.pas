@@ -10,17 +10,24 @@ uses
   FireDAC.Stan.Util, FireDAC.Stan.Intf, FireDAC.Comp.Script,
   FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.Phys.Intf, FireDAC.Stan.Def,
   FireDAC.Stan.Pool, FireDAC.Phys, FireDAC.Phys.FB, FireDAC.Phys.FBDef,
-  FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client;
+  FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client, FireDAC.Phys.IBBase,
+  FireDAC.Comp.UI;
 
 type
   TfrmPrincipal = class(TForm)
     StatusBar1: TStatusBar;
     ActionManager1: TActionManager;
-    Action1: TAction;
+    actParceiro: TAction;
     ActionMainMenuBar1: TActionMainMenuBar;
+    FDConnection1: TFDConnection;
+    FDScript1: TFDScript;
+    FDGUIxWaitCursor1: TFDGUIxWaitCursor;
+    FDPhysFBDriverLink1: TFDPhysFBDriverLink;
+    actEmpresa: TAction;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
-    procedure Action1Execute(Sender: TObject);
+    procedure actParceiroExecute(Sender: TObject);
+    procedure actEmpresaExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -36,7 +43,12 @@ implementation
 
 uses uFrmParceiroView;
 
-procedure TfrmPrincipal.Action1Execute(Sender: TObject);
+procedure TfrmPrincipal.actEmpresaExecute(Sender: TObject);
+begin
+//
+end;
+
+procedure TfrmPrincipal.actParceiroExecute(Sender: TObject);
 begin
   if frmCadastroParceiro = nil then
     Application.CreateForm(TfrmCadastroParceiro, frmCadastroParceiro);
@@ -50,7 +62,7 @@ end;
 procedure TfrmPrincipal.FormCreate(Sender: TObject);
 begin
   TSistemaControl.GetInstanceConexao();
-  TSistemaControl.GetInstanceConexao().AtualizaBancoDados;
+  //TSistemaControl.GetInstanceConexao().AtualizaBancoDados;
   TSistemaControl.GetInstanceConexao().CarregarEmpresa(1);
 
   StatusBar1.Panels[0].Text := 'Versão: 1.0';
